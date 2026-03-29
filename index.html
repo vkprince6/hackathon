@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hackathon Timer | KIT</title>
+    <title>Hackathon Timer | Codeboosters Tech</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
@@ -19,11 +19,7 @@
             --glow-purple: 0 0 30px rgba(168, 85, 247, 0.4);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--bg-dark);
@@ -35,540 +31,178 @@
             flex-direction: column;
         }
 
-        /* Background Effects */
         .bg-gradient {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at 50% 0%, #1a0b2e 0%, #110a15 40%, #050505 100%);
             z-index: -2;
         }
 
         .bg-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
             background-size: 40px 40px;
             z-index: -1;
             mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
         }
 
-        /* Navbar */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
+            position: fixed; top: 0; width: 100%;
             padding: 1.2rem 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            background: rgba(10, 10, 15, 0.85);
+            display: flex; justify-content: center; align-items: center; gap: 40px;
+            background: rgba(10,10,15,0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(168, 85, 247, 0.15);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(168,85,247,0.15);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
             z-index: 100;
         }
 
         .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            text-decoration: none;
-            color: white;
-            padding: 0.8rem 1.8rem;
-            min-width: 180px;
-            height: 75px;
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            text-decoration: none; color: white;
+            padding: 0.8rem 1.8rem; min-width: 180px; height: 75px;
             border-radius: 12px;
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255,255,255,0.04);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(168, 85, 247, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.15);
+            border: 1px solid rgba(168,85,247,0.2);
+            transition: all 0.3s ease; position: relative;
+            box-shadow: 0 4px 20px rgba(168,85,247,0.15);
         }
 
         .logo-container::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 12px;
-            padding: 1px;
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.4), rgba(255, 0, 102, 0.3));
+            content: ''; position: absolute; inset: 0; border-radius: 12px; padding: 1px;
+            background: linear-gradient(135deg, rgba(168,85,247,0.4), rgba(255,0,102,0.3));
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            -webkit-mask-composite: xor; mask-composite: exclude;
+            opacity: 0; transition: opacity 0.3s ease;
         }
 
-        .logo-container:hover {
-            transform: translateY(-3px) scale(1.05);
-            background: rgba(255, 255, 255, 0.06);
-            box-shadow: 0 8px 32px rgba(168, 85, 247, 0.3), 0 0 40px rgba(168, 85, 247, 0.2);
-            border-color: rgba(168, 85, 247, 0.4);
-        }
+        .logo-container:hover { transform: translateY(-3px) scale(1.05); background: rgba(255,255,255,0.06); box-shadow: 0 8px 32px rgba(168,85,247,0.3), 0 0 40px rgba(168,85,247,0.2); border-color: rgba(168,85,247,0.4); }
+        .logo-container:hover::before { opacity: 1; }
+        .logo-container:hover .logo-img { filter: drop-shadow(0 0 20px rgba(168,85,247,0.9)); }
 
-        .logo-container:hover::before {
-            opacity: 1;
-        }
+        .logo-img { height: 50px; width: auto; filter: drop-shadow(0 0 10px rgba(168,85,247,0.5)); transition: filter 0.3s ease; }
 
-        .logo-container:hover .logo-img {
-            filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.9));
-        }
-
-        .logo-img {
-            height: 50px;
-            width: auto;
-            filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
-            transition: filter 0.3s ease;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-        }
-
-        .logo-text h1 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin: 0;
-            line-height: 1.2;
-            background: linear-gradient(135deg, #ffffff, #e0e0e0);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .logo-text span {
-            display: block;
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            margin-top: 2px;
-            line-height: 1;
-        }
+        .logo-text { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+        .logo-text h1 { font-size: 1.3rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin: 0; line-height: 1.2; background: linear-gradient(135deg, #ffffff, #e0e0e0); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo-text span { display: block; font-size: 0.65rem; color: var(--text-muted); letter-spacing: 2.5px; text-transform: uppercase; margin-top: 2px; line-height: 1; }
 
         .nav-divider {
-            height: 65px;
-            width: 3px;
-            background: linear-gradient(
-                to bottom,
-                transparent,
-                rgba(168, 85, 247, 0.7) 15%,
-                rgba(255, 0, 102, 0.7) 50%,
-                rgba(168, 85, 247, 0.7) 85%,
-                transparent
-            );
-            box-shadow: 0 0 25px rgba(168, 85, 247, 0.6), 0 0 40px rgba(255, 0, 102, 0.3);
-            border-radius: 3px;
-            filter: blur(0.5px);
+            height: 65px; width: 3px;
+            background: linear-gradient(to bottom, transparent, rgba(168,85,247,0.7) 15%, rgba(255,0,102,0.7) 50%, rgba(168,85,247,0.7) 85%, transparent);
+            box-shadow: 0 0 25px rgba(168,85,247,0.6), 0 0 40px rgba(255,0,102,0.3);
+            border-radius: 3px; filter: blur(0.5px);
         }
 
-        /* Hero / Timer Section */
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 120px 20px 80px;
-            text-align: center;
-            position: relative;
-        }
+        main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 120px 20px 80px; text-align: center; position: relative; }
 
-        .event-badge {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            border: 1px solid var(--accent-purple);
-            color: var(--accent-purple);
-            border-radius: 50px;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            background: rgba(168, 85, 247, 0.1);
-            box-shadow: var(--glow-purple);
-        }
+        .event-badge { display: inline-block; padding: 0.5rem 1.5rem; border: 1px solid var(--accent-purple); color: var(--accent-purple); border-radius: 50px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; background: rgba(168,85,247,0.1); box-shadow: var(--glow-purple); }
 
-        h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            background: linear-gradient(to right, #fff, #ccc);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        h2 { font-family: 'Orbitron', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(to right, #fff, #ccc); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
-            letter-spacing: 1px;
-        }
+        .subtitle { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 3rem; letter-spacing: 1px; }
 
-        /* Timer Display */
-        .timer-container {
-            position: relative;
-            margin-bottom: 3rem;
-        }
+        .timer-container { position: relative; margin-bottom: 3rem; }
 
-        .timer-display {
-            font-family: 'Orbitron', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            transition: text-shadow 0.3s, color 0.3s;
-        }
+        .timer-display { font-family: 'Orbitron', sans-serif; display: flex; align-items: center; justify-content: center; gap: 20px; transition: text-shadow 0.3s, color 0.3s; }
+        .timer-display.pulse { animation: pulse-anim 1s infinite; }
+        .timer-display.warning { filter: drop-shadow(0 0 20px var(--accent-red)); }
+        .timer-display .separator { font-size: 3rem; font-weight: 900; opacity: 0.7; margin: 0 10px; }
 
-        .timer-display.pulse {
-            animation: pulse-anim 1s infinite;
-        }
+        .time-unit { display: flex; flex-direction: column; align-items: center; min-width: 120px; }
 
-        .timer-display.warning {
-            filter: drop-shadow(0 0 20px var(--accent-red));
-        }
+        .time-value { background: rgba(255,255,255,0.05); padding: 0; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); position: relative; perspective: 400px; width: 120px; height: 140px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 
-        .timer-display .separator {
-            font-size: 3rem;
-            font-weight: 900;
-            opacity: 0.7;
-            margin: 0 10px;
-        }
+        .flip-card { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 4rem; font-weight: 900; font-family: 'Orbitron', sans-serif; transform-style: preserve-3d; }
+        .flip-card.flipping { animation: flip-up 0.6s ease-in-out; }
+        .flip-number { font-size: inherit; font-weight: inherit; font-family: inherit; line-height: 1; }
 
-        .time-unit {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 120px;
-        }
+        .flip-top, .flip-bottom { position: absolute; width: 100%; height: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.02); }
+        .flip-top { top: 0; border-bottom: 1px solid rgba(0,0,0,0.3); align-items: flex-end; padding-bottom: 2px; }
+        .flip-bottom { bottom: 0; border-top: 1px solid rgba(255,255,255,0.1); align-items: flex-start; padding-top: 2px; }
+        .flip-top .flip-number { transform: translateY(50%); }
+        .flip-bottom .flip-number { transform: translateY(-50%); }
 
-        .time-value {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            perspective: 400px;
-            width: 120px;
-            height: 140px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
+        @keyframes flip-up { 0% { transform: rotateX(0deg); } 100% { transform: rotateX(360deg); } }
 
-        .flip-card {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            font-weight: 900;
-            font-family: 'Orbitron', sans-serif;
-            transform-style: preserve-3d;
-        }
+        .time-label { font-family: 'Rajdhani', sans-serif; font-size: 0.9rem; color: var(--text-muted); margin-top: 10px; text-transform: uppercase; letter-spacing: 2px; }
 
-        .flip-card.flipping {
-            animation: flip-up 0.6s ease-in-out;
-        }
+        .progress-wrapper { width: 100%; max-width: 600px; margin-bottom: 3rem; background: rgba(255,255,255,0.1); height: 6px; border-radius: 3px; overflow: hidden; position: relative; }
+        .progress-bar { height: 100%; background: linear-gradient(90deg, var(--accent-purple), var(--accent-red)); width: 100%; transition: width 1s linear; box-shadow: 0 0 15px var(--accent-red); position: relative; }
+        .progress-bar::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); transform: translateX(-100%); animation: shimmer 2s infinite; }
+        @keyframes shimmer { 100% { transform: translateX(100%); } }
 
-        .flip-number {
-            font-size: inherit;
-            font-weight: inherit;
-            font-family: inherit;
-            line-height: 1;
-        }
+        .controls { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
 
-        .flip-top, .flip-bottom {
-            position: absolute;
-            width: 100%;
-            height: 50%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.02);
-        }
+        .btn { padding: 12px 30px; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; border: none; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .btn-primary { background: linear-gradient(135deg, var(--accent-red), #cc0029); color: white; box-shadow: 0 4px 15px rgba(255,0,51,0.3); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,0,51,0.4); }
+        .btn-secondary { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); }
+        .btn-secondary:hover { background: rgba(255,255,255,0.15); }
 
-        .flip-top {
-            top: 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-            align-items: flex-end;
-            padding-bottom: 2px;
-        }
-
-        .flip-bottom {
-            bottom: 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            align-items: flex-start;
-            padding-top: 2px;
-        }
-
-        .flip-top .flip-number {
-            transform: translateY(50%);
-        }
-
-        .flip-bottom .flip-number {
-            transform: translateY(-50%);
-        }
-
-        @keyframes flip-up {
-            0% {
-                transform: rotateX(0deg);
-            }
-            100% {
-                transform: rotateX(360deg);
-            }
-        }
-
-        .time-label {
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-top: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Progress Bar */
-        .progress-wrapper {
-            width: 100%;
-            max-width: 600px;
-            margin-bottom: 3rem;
-            background: rgba(255, 255, 255, 0.1);
-            height: 6px;
-            border-radius: 3px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent-purple), var(--accent-red));
-            width: 100%; /* JS will update this */
-            transition: width 1s linear;
-            box-shadow: 0 0 15px var(--accent-red);
-            position: relative;
-        }
-        
-        .progress-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transform: translateX(-100%);
-            animation: shimmer 2s infinite;
-        }
-
-        @keyframes shimmer {
-            100% { transform: translateX(100%); }
-        }
-
-        /* Controls */
-        .controls {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--accent-red), #cc0029);
-            color: white;
-            box-shadow: 0 4px 15px rgba(255, 0, 51, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 0, 51, 0.4);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        /* Completion Message */
+        /* Completion Banner */
         .completion-msg {
             display: none;
             margin-top: 2rem;
-            font-size: 1.5rem;
-            color: var(--accent-purple);
+            padding: 1.5rem 3rem;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(255,0,51,0.1));
+            border: 1px solid rgba(168,85,247,0.4);
+            box-shadow: 0 0 40px rgba(168,85,247,0.2);
+        }
+
+        .completion-msg .main-line {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
             font-weight: 700;
+            color: var(--accent-purple);
+            letter-spacing: 2px;
+            text-transform: uppercase;
             animation: fadeInUp 0.5s ease forwards;
         }
 
-        /* Footer */
-        footer {
-            padding: 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(0,0,0,0.2);
-        }
-
-        .sponsors-title {
-            font-size: 0.8rem;
+        .completion-msg .sub-line {
+            margin-top: 0.5rem;
+            font-size: 1rem;
             color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
+            letter-spacing: 1px;
         }
 
-        .sponsor-logo {
-            height: 40px;
-            opacity: 0.8;
-            filter: grayscale(100%) brightness(150%);
-            transition: all 0.3s;
-        }
+        footer { padding: 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.2); }
+        .sponsors-title { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; }
 
-        .sponsor-logo:hover {
-            opacity: 1;
-            filter: none;
-        }
+        #audio-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 1000; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: opacity 0.5s; }
+        #audio-overlay h2 { margin-bottom: 1rem; }
+        #audio-overlay p { color: var(--text-muted); margin-bottom: 2rem; }
 
-        /* Audio Unlock Overlay */
-        #audio-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: opacity 0.5s;
-        }
+        @keyframes pulse-anim { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.02); opacity: 0.8; } 100% { transform: scale(1); opacity: 1; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        #audio-overlay h2 {
-            margin-bottom: 1rem;
-        }
-
-        #audio-overlay p {
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-
-        /* Animations */
-        @keyframes pulse-anim {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.02); opacity: 0.8; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            nav {
-                gap: 20px;
-                padding: 1rem 0.5rem;
-            }
-            
-            .logo-container {
-                padding: 0.6rem 1.2rem;
-                gap: 8px;
-                min-width: 140px;
-                height: 60px;
-            }
-            
-            .logo-img {
-                height: 38px;
-            }
-            
-            .logo-text h1 {
-                font-size: 1rem;
-            }
-            
-            .logo-text span {
-                font-size: 0.55rem;
-                letter-spacing: 1.5px;
-            }
-            
-            .nav-divider {
-                height: 50px;
-                width: 2px;
-            }
-            
-            .timer-display {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .time-unit {
-                min-width: auto;
-            }
-            .separator {
-                display: none;
-            }
-            .nav-link {
-                display: none;
-            }
+            nav { gap: 20px; padding: 1rem 0.5rem; }
+            .logo-container { padding: 0.6rem 1.2rem; gap: 8px; min-width: 140px; height: 60px; }
+            .logo-img { height: 38px; }
+            .logo-text h1 { font-size: 1rem; }
+            .logo-text span { font-size: 0.55rem; letter-spacing: 1.5px; }
+            .nav-divider { height: 50px; width: 2px; }
+            .timer-display { flex-direction: column; gap: 1rem; }
+            .time-unit { min-width: auto; }
+            .separator { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Audio Unlock Overlay (Required for Autoplay Policy) -->
     <div id="audio-overlay">
         <h2>HACKATHON INITIATED</h2>
         <p>Click anywhere to enable sound system</p>
         <button class="btn btn-primary" id="enter-btn">Enter Arena</button>
     </div>
 
-    <!-- Backgrounds -->
     <div class="bg-gradient"></div>
     <div class="bg-grid"></div>
 
-    <!-- Navbar -->
     <nav>
-        <!-- KIT Logo -->
         <a href="#" class="logo-container">
             <img src="https://z-cdn-media.chatglm.cn/files/49601016-fbee-49a0-a359-faa3465811ff.png?auth_key=1874684867-632da047b0294dcbbf2088db9bccbd5a-0-541528f930eacf90ea7d0ce9a04fbf80" alt="KIT Logo" class="logo-img">
             <div class="logo-text">
@@ -576,17 +210,12 @@
                 <span>Coimbatore</span>
             </div>
         </a>
-        
-        <!-- Glowing Divider -->
         <div class="nav-divider"></div>
-        
-        <!-- CodeBooster Logo -->
         <a href="#" class="logo-container">
             <img src="logo.png" alt="CodeBoosters Tech Logo" class="logo-img">
         </a>
     </nav>
 
-    <!-- Main Content -->
     <main>
         <span class="event-badge">Live Event</span>
         <h2>Hackathon Timer</h2>
@@ -597,12 +226,8 @@
                 <div class="time-unit">
                     <div class="time-value">
                         <div class="flip-card" id="hours">
-                            <div class="flip-top">
-                                <span class="flip-number">00</span>
-                            </div>
-                            <div class="flip-bottom">
-                                <span class="flip-number">00</span>
-                            </div>
+                            <div class="flip-top"><span class="flip-number">00</span></div>
+                            <div class="flip-bottom"><span class="flip-number">00</span></div>
                         </div>
                     </div>
                     <span class="time-label">Hours</span>
@@ -611,12 +236,8 @@
                 <div class="time-unit">
                     <div class="time-value">
                         <div class="flip-card" id="minutes">
-                            <div class="flip-top">
-                                <span class="flip-number">00</span>
-                            </div>
-                            <div class="flip-bottom">
-                                <span class="flip-number">00</span>
-                            </div>
+                            <div class="flip-top"><span class="flip-number">00</span></div>
+                            <div class="flip-bottom"><span class="flip-number">00</span></div>
                         </div>
                     </div>
                     <span class="time-label">Minutes</span>
@@ -625,12 +246,8 @@
                 <div class="time-unit">
                     <div class="time-value">
                         <div class="flip-card" id="seconds">
-                            <div class="flip-top">
-                                <span class="flip-number">00</span>
-                            </div>
-                            <div class="flip-bottom">
-                                <span class="flip-number">00</span>
-                            </div>
+                            <div class="flip-top"><span class="flip-number">00</span></div>
+                            <div class="flip-bottom"><span class="flip-number">00</span></div>
                         </div>
                     </div>
                     <span class="time-label">Seconds</span>
@@ -638,32 +255,26 @@
             </div>
         </div>
 
-        <!-- Progress Bar -->
         <div class="progress-wrapper">
             <div class="progress-bar" id="progress-bar"></div>
         </div>
 
-        <!-- Duration Input -->
         <div style="margin-bottom: 2rem; display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center;">
             <label style="color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Set Duration:</label>
             <div style="display: flex; align-items: center; gap: 10px;">
-                <input type="number" id="hours-input" min="0" max="99" value="5" 
-                       style="padding: 8px 12px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 4px; color: white; font-family: 'Rajdhani', sans-serif; font-size: 1rem; width: 70px; text-align: center;">
+                <input type="number" id="hours-input" min="0" max="99" value="5" style="padding: 8px 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; color: white; font-family: 'Rajdhani', sans-serif; font-size: 1rem; width: 70px; text-align: center;">
                 <span style="color: var(--text-muted); font-size: 0.85rem;">Hours</span>
             </div>
             <div style="display: flex; align-items: center; gap: 10px;">
-                <input type="number" id="minutes-input" min="0" max="59" value="0" 
-                       style="padding: 8px 12px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 4px; color: white; font-family: 'Rajdhani', sans-serif; font-size: 1rem; width: 70px; text-align: center;">
+                <input type="number" id="minutes-input" min="0" max="59" value="0" style="padding: 8px 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; color: white; font-family: 'Rajdhani', sans-serif; font-size: 1rem; width: 70px; text-align: center;">
                 <span style="color: var(--text-muted); font-size: 0.85rem;">Minutes</span>
             </div>
             <div style="display: flex; align-items: center; gap: 10px;">
-                <input type="number" id="seconds-input" min="0" max="59" value="0" 
-                       style="padding: 8px 12px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 4px; color: white; font-family: 'Rajdhani', sans-serif; font-size: 1rem; width: 70px; text-align: center;">
+                <input type="number" id="seconds-input" min="0" max="59" value="0" style="padding: 8px 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; color: white; font-family: 'Rajdhani', sans-serif; font-size: 1rem; width: 70px; text-align: center;">
                 <span style="color: var(--text-muted); font-size: 0.85rem;">Seconds</span>
             </div>
         </div>
 
-        <!-- Controls -->
         <div class="controls">
             <button class="btn btn-primary" id="start-btn">Start Timer</button>
             <button class="btn btn-secondary" id="pause-btn" disabled>Pause</button>
@@ -671,32 +282,24 @@
         </div>
 
         <div class="completion-msg" id="completion-msg">
-            Hackathon Completed
+            <div class="main-line">&#x2713; Hackathon Completed</div>
+            <div class="sub-line">Time Over — Thank you for participating</div>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer>
-        <div class="sponsors-title">Powered By KIT & CodeBooster</div>
+        <div class="sponsors-title">Powered By &amp; CodeBoosters Tech</div>
     </footer>
 
     <script>
         // --- Configuration ---
-        let TOTAL_DURATION = 5 * 60 * 60; // Default 5 Hours in seconds
+        let TOTAL_DURATION = 5 * 60 * 60;
 
         // --- State ---
         let timeRemaining = TOTAL_DURATION;
         let timerInterval = null;
         let isRunning = false;
         let audioCtx = null;
-        let alarmAudio = null;
-
-        // Preload alarm audio file
-        function preloadAlarmAudio() {
-            alarmAudio = new Audio('fire_alarm.mp3');
-            alarmAudio.preload = 'auto';
-            alarmAudio.volume = 1.0; // Full volume
-        }
 
         // --- DOM Elements ---
         const hoursEl = document.getElementById('hours');
@@ -714,136 +317,44 @@
         const minutesInput = document.getElementById('minutes-input');
         const secondsInput = document.getElementById('seconds-input');
 
-        // --- Audio System (Web Audio API) ---
+        // --- Audio / Speech System ---
+        let completionAudio = null;
+
         function initAudio() {
             if (!audioCtx) {
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
             }
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+
+            // Preload the completion audio
+            completionAudio = new Audio('voice.mp3');
+            completionAudio.preload = 'auto';
+            completionAudio.volume = 0.85;
         }
 
-        // Classic alarm beep for countdown (3, 2, 1)
-        function playCountdownBeep(count) {
+        // Countdown beep (professional, low-key)
+        function playCountdownBeep() {
             if (!audioCtx) return;
-            
             const now = audioCtx.currentTime;
-            const frequency = 1000; // Classic alarm frequency
-            const duration = 0.15;
-            
-            // Simple square wave for classic alarm sound
             const osc = audioCtx.createOscillator();
             const gain = audioCtx.createGain();
             osc.connect(gain);
             gain.connect(audioCtx.destination);
-            osc.type = 'square';
-            osc.frequency.value = frequency;
-            
-            // Sharp attack and decay
+            osc.type = 'sine';
+            osc.frequency.value = 880;
             gain.gain.setValueAtTime(0, now);
-            gain.gain.linearRampToValueAtTime(0.3, now + 0.01);
-            gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
-            
+            gain.gain.linearRampToValueAtTime(0.18, now + 0.01);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
             osc.start(now);
-            osc.stop(now + duration);
+            osc.stop(now + 0.2);
         }
 
-        // Classic alarm sound (alternating high-low beeps)
-        function playClassicAlarm() {
-            if (!audioCtx) return;
-            
-            const now = audioCtx.currentTime;
-            const beepDuration = 0.2;
-            const gapDuration = 0.15;
-            const cycleCount = 20; // Number of beeps
-            
-            for (let i = 0; i < cycleCount; i++) {
-                const beepStart = now + (i * (beepDuration + gapDuration));
-                const frequency = (i % 2 === 0) ? 1200 : 900; // Alternating high-low
-                
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                osc.type = 'square'; // Classic alarm tone
-                osc.frequency.value = frequency;
-                
-                // Loud and sharp
-                gain.gain.setValueAtTime(0, beepStart);
-                gain.gain.linearRampToValueAtTime(0.4, beepStart + 0.01);
-                gain.gain.setValueAtTime(0.4, beepStart + beepDuration - 0.02);
-                gain.gain.linearRampToValueAtTime(0.001, beepStart + beepDuration);
-                
-                osc.start(beepStart);
-                osc.stop(beepStart + beepDuration);
-            }
-        }
-
-        // Complete timer completion sound sequence
-        function playCompletionSound() {
-            // Play the alarm audio file
-            if (alarmAudio) {
-                alarmAudio.currentTime = 0; // Reset to start
-                alarmAudio.play().catch(err => {
-                    console.error('Error playing alarm:', err);
-                    // Fallback to classic alarm if file fails
-                    playClassicAlarm();
-                });
-            } else {
-                // Fallback to classic alarm if audio not loaded
-                playClassicAlarm();
-            }
-        }
-
-        // Legacy SOS function (kept for compatibility)
-        function playSOS() {
-            const shortBeep = 0.2;
-            const longBeep = 0.6;
-            const gap = 0.1;
-            const letterGap = 0.4;
-            
-            let time = audioCtx.currentTime;
-
-            const playTone = (dur) => {
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-                osc.type = 'square';
-                osc.frequency.value = 1000;
-                
-                gain.gain.setValueAtTime(0, time);
-                gain.gain.linearRampToValueAtTime(0.1, time + 0.01);
-                gain.gain.exponentialRampToValueAtTime(0.001, time + dur);
-                
-                osc.start(time);
-                osc.stop(time + dur);
-            };
-
-            // Repeat 2 times
-            for(let r=0; r<2; r++) {
-                // S: 3 short
-                for(let i=0; i<3; i++) {
-                    playTone(shortBeep);
-                    time += shortBeep + gap;
-                }
-                time += letterGap;
-
-                // O: 3 long
-                for(let i=0; i<3; i++) {
-                    playTone(longBeep);
-                    time += longBeep + gap;
-                }
-                time += letterGap;
-
-                // S: 3 short
-                for(let i=0; i<3; i++) {
-                    playTone(shortBeep);
-                    time += shortBeep + gap;
-                }
-                time += 1.0;
-            }
+        // --- Play uploaded MP3 once at 0:00:00, stops when done ---
+        function playCompletionAnnouncement() {
+            if (!completionAudio) return;
+            completionAudio.currentTime = 0;
+            completionAudio.play().catch(() => {});
+            // Stops automatically when the file ends (no loop)
         }
 
         // --- Timer Logic ---
@@ -851,7 +362,6 @@
             const h = Math.floor(seconds / 3600);
             const m = Math.floor((seconds % 3600) / 60);
             const s = Math.floor(seconds % 60);
-            
             return {
                 h: String(h).padStart(2, '0'),
                 m: String(m).padStart(2, '0'),
@@ -862,90 +372,65 @@
         function updateFlipCard(element, newValue) {
             const topNumber = element.querySelector('.flip-top .flip-number');
             const bottomNumber = element.querySelector('.flip-bottom .flip-number');
-            const currentValue = topNumber.textContent;
-
-            if (currentValue !== newValue) {
-                // Update numbers immediately before animation starts
+            if (topNumber.textContent !== newValue) {
                 topNumber.textContent = newValue;
                 bottomNumber.textContent = newValue;
-                
-                // Trigger flip animation
                 element.classList.add('flipping');
-                
-                // Remove animation class after completion
-                setTimeout(() => {
-                    element.classList.remove('flipping');
-                }, 600);
+                setTimeout(() => element.classList.remove('flipping'), 600);
             }
         }
 
         function updateDisplay() {
             const time = formatTime(timeRemaining);
-            
-            // Update with flip animation
             updateFlipCard(hoursEl, time.h);
             updateFlipCard(minutesEl, time.m);
             updateFlipCard(secondsEl, time.s);
 
-            // Progress Bar
             const progressPercent = (timeRemaining / TOTAL_DURATION) * 100;
             progressBar.style.width = `${progressPercent}%`;
 
-            // Visual Effects
             if (timeRemaining <= 10) {
-                timerDisplay.classList.add('warning');
-                timerDisplay.classList.add('pulse');
+                timerDisplay.classList.add('warning', 'pulse');
             } else {
-                timerDisplay.classList.remove('warning');
-                timerDisplay.classList.remove('pulse');
+                timerDisplay.classList.remove('warning', 'pulse');
             }
         }
 
         function tick() {
             if (timeRemaining > 0) {
                 timeRemaining--;
-                
-                // Professional countdown sounds at 3, 2, 1
-                if (timeRemaining === 3) {
-                    playCountdownBeep(3);
-                } else if (timeRemaining === 2) {
-                    playCountdownBeep(2);
-                } else if (timeRemaining === 1) {
-                    playCountdownBeep(1);
-                }
-
+                // Soft beep only at 3, 2, 1
+                if (timeRemaining <= 3 && timeRemaining > 0) playCountdownBeep();
                 updateDisplay();
             } else {
                 clearInterval(timerInterval);
                 timerInterval = null;
                 isRunning = false;
-                startBtn.textContent = "Start Timer";
+                startBtn.textContent = 'Start Timer';
                 pauseBtn.disabled = true;
-                
-                // Show Completion
+                startBtn.disabled = false;
+
+                // Show banner
                 completionMsg.style.display = 'block';
-                
-                // Play professional completion sound (bass impact + success chime)
+
+                // Trigger robotic voice after brief pause (so display updates first)
                 setTimeout(() => {
-                    playCompletionSound();
-                }, 100);
+                    playCompletionAnnouncement();
+                }, 300);
             }
         }
 
         function startTimer() {
             if (!isRunning) {
                 if (timeRemaining === 0) {
-                    // If restarting after completion
                     timeRemaining = TOTAL_DURATION;
                     completionMsg.style.display = 'none';
                     updateDisplay();
                 }
                 isRunning = true;
-                startBtn.textContent = "Running...";
+                startBtn.textContent = 'Running...';
                 startBtn.disabled = true;
                 pauseBtn.disabled = false;
-                
-                // Start interval
                 timerInterval = setInterval(tick, 1000);
             }
         }
@@ -955,15 +440,11 @@
                 clearInterval(timerInterval);
                 timerInterval = null;
                 isRunning = false;
-                startBtn.textContent = "Resume";
+                startBtn.textContent = 'Resume';
                 startBtn.disabled = false;
                 pauseBtn.disabled = true;
-                
-                // Stop alarm if playing
-                if (alarmAudio && !alarmAudio.paused) {
-                    alarmAudio.pause();
-                    alarmAudio.currentTime = 0;
-                }
+                // Stop MP3 if playing
+                if (completionAudio) { completionAudio.pause(); completionAudio.currentTime = 0; }
             }
         }
 
@@ -971,31 +452,23 @@
             clearInterval(timerInterval);
             timerInterval = null;
             isRunning = false;
-            
-            // Stop alarm if playing
-            if (alarmAudio && !alarmAudio.paused) {
-                alarmAudio.pause();
-                alarmAudio.currentTime = 0;
-            }
-            
-            // Update duration from inputs
+
+            if (completionAudio) { completionAudio.pause(); completionAudio.currentTime = 0; }
+
             const hours = parseInt(hoursInput.value) || 0;
             const minutes = parseInt(minutesInput.value) || 0;
             const seconds = parseInt(secondsInput.value) || 0;
             TOTAL_DURATION = (hours * 3600) + (minutes * 60) + seconds;
-            
-            // Ensure at least 1 second
             if (TOTAL_DURATION === 0) {
-                TOTAL_DURATION = 5 * 3600; // Default to 5 hours
+                TOTAL_DURATION = 5 * 3600;
                 hoursInput.value = 5;
                 minutesInput.value = 0;
                 secondsInput.value = 0;
             }
-            
+
             timeRemaining = TOTAL_DURATION;
-            
             updateDisplay();
-            startBtn.textContent = "Start Timer";
+            startBtn.textContent = 'Start Timer';
             startBtn.disabled = false;
             pauseBtn.disabled = true;
             completionMsg.style.display = 'none';
@@ -1006,56 +479,32 @@
         startBtn.addEventListener('click', startTimer);
         pauseBtn.addEventListener('click', pauseTimer);
         resetBtn.addEventListener('click', resetTimer);
-        
-        // Update duration when inputs change (only if timer is not running)
+
         const updateDuration = () => {
             if (!isRunning) {
                 const hours = parseInt(hoursInput.value) || 0;
                 const minutes = parseInt(minutesInput.value) || 0;
                 const seconds = parseInt(secondsInput.value) || 0;
-                TOTAL_DURATION = (hours * 3600) + (minutes * 60) + seconds;
-                
-                // Ensure at least 1 second
-                if (TOTAL_DURATION === 0) {
-                    TOTAL_DURATION = 5 * 3600;
-                }
-                
+                TOTAL_DURATION = (hours * 3600) + (minutes * 60) + seconds || (5 * 3600);
                 timeRemaining = TOTAL_DURATION;
                 updateDisplay();
             }
         };
-        
+
         hoursInput.addEventListener('change', updateDuration);
         minutesInput.addEventListener('change', updateDuration);
         secondsInput.addEventListener('change', updateDuration);
 
-        // Audio Unlock
-        enterBtn.addEventListener('click', () => {
+        function unlockAndEnter() {
             initAudio();
-            preloadAlarmAudio(); // Preload the alarm sound
             audioOverlay.style.opacity = '0';
-            setTimeout(() => {
-                audioOverlay.style.display = 'none';
-            }, 500);
-        });
-        // Also allow clicking the overlay background
-        audioOverlay.addEventListener('click', (e) => {
-            if(e.target === audioOverlay) {
-                initAudio();
-                preloadAlarmAudio(); // Preload the alarm sound
-                audioOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    audioOverlay.style.display = 'none';
-                }, 500);
-            }
-        });
+            setTimeout(() => audioOverlay.style.display = 'none', 500);
+        }
 
-        // Initialize Display
+        enterBtn.addEventListener('click', (e) => { e.stopPropagation(); unlockAndEnter(); });
+        audioOverlay.addEventListener('click', unlockAndEnter);
+
         updateDisplay();
-        
-        // Preload alarm audio on page load
-        preloadAlarmAudio();
-
     </script>
 </body>
 </html>
